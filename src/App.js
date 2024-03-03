@@ -123,8 +123,8 @@ function App() {
         </nav>
 
         <div className="relative top-24" id="home">
-          <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" />
-          {/* <Spline scene="https://prod.spline.design/OpUtbD7UMt7HAaDW/scene.splinecode" /> */}
+          {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
+          <Spline scene="https://prod.spline.design/OpUtbD7UMt7HAaDW/scene.splinecode" />
           <div className="absolute bottom-10 w-full flex justify-center items-center">
             <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl ">
               <p className="text-white">Press and drag to orbit</p>
