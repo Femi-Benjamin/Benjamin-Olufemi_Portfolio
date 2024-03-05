@@ -120,21 +120,7 @@ export const SocialLinks = [
     id: 1,
     iconSrc: <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />,
     name: "GitHub",
-    link: "#",
-  },
-  {
-    id: 1,
-    iconSrc: <IoLogoYoutube className="text-red-500 text-3xl cursor-pointer" />,
-    name: "YouTube",
-    link: "#",
-  },
-  {
-    id: 1,
-    iconSrc: (
-      <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
-    ),
-    name: "Twitter",
-    link: "#",
+    link: "https://github.com/Femi-Benjamin",
   },
   {
     id: 1,
@@ -142,7 +128,15 @@ export const SocialLinks = [
       <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
     ),
     name: "LinkedIn",
-    link: "#",
+    link: "https://www.linkedin.com/in/benjamin-olufemi-7524ab226/",
+  },
+  {
+    id: 1,
+    iconSrc: (
+      <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
+    ),
+    name: "Twitter",
+    link: "https://twitter.com/FemiBenjamin7",
   },
   {
     id: 1,
@@ -150,6 +144,12 @@ export const SocialLinks = [
       <IoLogoWhatsapp className="text-green-500 text-3xl cursor-pointer" />
     ),
     name: "Whatsapp",
-    link: "#",
+    link: "https://web.whatsapp.com/",
+  },
+  {
+    id: 1,
+    iconSrc: <IoLogoYoutube className="text-red-500 text-3xl cursor-pointer" />,
+    name: "YouTube",
+    link: "https://www.youtube.com/channel/UCQpGxRstrmjDdEn_dE7JTmQ",
   },
 ];

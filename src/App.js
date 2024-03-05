@@ -4,7 +4,10 @@ import { useState } from "react";
 import ben from "./images/ben.jpg"
 import {
   IoMenu,
-  IoLogoGithub
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoCallOutline,
+  IoMailOutline
 } from "react-icons/io5"
 import {
   VerticalTimeline,
@@ -16,6 +19,8 @@ import {
   SocialLinks
 } from "./data";
 import { AnimatePresence, motion } from 'framer-motion'
+
+
 
 function App() {
   const [isActive, setIsActive] = useState(false);
@@ -123,14 +128,28 @@ function App() {
         </nav>
 
         <div className="relative top-24" id="home">
+          <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode" />
           {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
-          <Spline scene="https://prod.spline.design/OpUtbD7UMt7HAaDW/scene.splinecode" />
           <div className="absolute bottom-10 w-full flex justify-center items-center">
             <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl ">
               <p className="text-white">Press and drag to orbit</p>
             </div>
           </div>
         </div>
+
+        {/* <div
+          className="relative top-24" id="home">
+          <div
+            className="w-full md:w-4/5 lg:w-3/5 animate-pulse">
+            <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" />
+          </div>
+          <div className="absolute bottom-10 w-full flex justify-center items-center">
+            <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl ">
+              <p className="text-white">Press and drag to orbit</p>
+            </div>
+          </div>
+        </div> */}
+
 
         {/* MAIN SECTION */}
         <main className="w-[80%] mt-10">
@@ -141,16 +160,19 @@ function App() {
           >
             {/* image box */}
             <div className="w-full h-420 flex items-center justify-center">
-              <div className="w-275 h-340 relative bg-zinc-600 rounded-md">
+              <motion.div
+
+                className="w-275 h-340 relative bg-zinc-600 rounded-md">
                 <img
                   src={ben}
                   alt=""
                   className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl"
                 />
-              </div>
+              </motion.div>
             </div>
 
-            {/* content box */}
+
+            {/* CONTENT BOX */}
             <div className="w-full h-420 flex items-center justify-center">
               <div>
                 <p className="text-lg text-textBase text-center">
@@ -171,7 +193,8 @@ function App() {
             </div>
           </section>
 
-          {/* Timeline */} {/* mapped */}
+
+          {/* TIMELINE SECTION */} {/* mapped */}
           <section className="w-full flex items-center justify-center">
             <VerticalTimeline>
               {
@@ -200,9 +223,11 @@ function App() {
             </VerticalTimeline>
           </section>
 
-          {/* Projects Section */} {/* mapped */}
-          <section className="flex flex-wrap items-center justify-evenly my-24 gap-4"
-            id="projects">
+
+          {/* PROJECT SECTION */} {/* mapped */}
+          <h1 className="text-center text-3xl text-textBase font-medium uppercase mt-24" id="projects">My Projects</h1>
+          <section className="flex flex-wrap items-center justify-evenly my-20 gap-4"
+          >
             {Projects && Projects.map(n => (
               <motion.div
                 whileHover={{ scale: 0.9 }}
@@ -231,11 +256,131 @@ function App() {
             ))}
           </section>
 
-          {/* Contact */} {/* mapped */}
+
+          {/* HIRE ME SECTION */}
+          <section className="grid md:grid-cols-2 my-12 md:my-12 py-20 gap-4 relative" id="contacts">
+            {/* <div className="rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div> */}
+            <div className="z10">
+              <h5 className="font-bold my-2 text-3xl text-textBase fontmedium uppercase">
+                Hire Me
+              </h5>
+              <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md text-xl">
+                I&apos;m currently looking for new opportunities, my inbox is always
+                open. Whether you have a question or just want to say hi, I&apos;ll
+                try my best to get back to you!
+              </p>
+
+              <a href="https://github.com/Femi-Benjamin">
+                <img src={IoLogoGithub} alt="" />
+              </a>
+
+
+              <a href="https://www.linkedin.com/in/benjamin-olufemi-7524ab226/">
+                <img src={IoLogoLinkedin} alt="" />
+              </a>
+
+              <div className="text-[#ADB7BE] max-w-md text-xl mt-10 md:mb-0 mb-6">
+                <div className="flex gap-3 mb-7 items-center">
+                  <IoCallOutline />
+                  <h1>08160989601, 07054405537</h1>
+                </div>
+
+
+                <a href="mailto:benjaminolufemi16@gmail.com" className="flex gap-3 items-center">
+                  <IoMailOutline />
+                  <h1>benjaminolufemi16@gmail.com</h1>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <form className="flex flex-col gap-4 ">
+                <div className="mb-4">
+                  <label htmlFor="name" className="block text-md text-white pb-3">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="Enter your name"
+                    name="name"
+                    className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-4 outline-none "
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <label
+                    htmlFor="email"
+                    className="text-white block mb-2 text-md font-medium"
+                  >
+                    Your email
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    id="email"
+                    required
+                    className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-4 outline-none"
+                    placeholder="jacob@google.com"
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <label
+                    htmlFor="subject"
+                    className="text-white block text-md mb-2 font-medium"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    name="subject"
+                    type="text"
+                    id="subject"
+                    required
+                    className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-4 outline-none"
+                    placeholder="Just saying hi"
+                  />
+                </div>
+
+                <div className="mb-6 z-10">
+                  <label
+                    htmlFor="message"
+                    className="text-white block text-md mb-2 font-medium"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    // required="required"
+                    className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3 outline-none"
+                    placeholder="Let's talk about..."
+                  />
+                </div>
+
+                <div className="items-center md:flex md:justify-center">
+                  <button
+                    whileTap={{ scale: 0.8 }}
+                    class="w-full md:w-auto relative md:mt-6 inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50 hover:dark:shadow-lg hover:dark:shadow-teal-800/80">
+                    <span class="w-full md:w-auto relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                      Send Message
+                    </span>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+
+
+
+
+          </section>
+
+          {/* CONTACT ME SECTION */} {/* mapped */}
           <section
-            id="contacts"
-            className="flex flex-col items-center justify-center w-full my-24">
-            <p className="text-2xl text-gray-400 capitalize">follow me on</p>
+            className="flex flex-col items-center justify-center w-full my24">
+            <p className="text-2xl text-gray-400 capitalize md:text-left text-center">follow me on social media for more content</p>
             <div className="flex items-center justify-center w-full my-10 flex-wrap gap-4">
               {
                 SocialLinks && SocialLinks.map(n => (
@@ -243,7 +388,7 @@ function App() {
                     whileTap={{ scale: 0.8 }}
                     key={n.id}
                     className="w-full md:w-auto px-3 md:px-10 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 
-                  duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3 hover:bg-navBar" href="/">
+                  duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3 hover:bg-navBar" href={n.link} target="_blank" rel="noopener noreferrer">
                     {n.iconSrc}
                     <p className="text-lg text-textBase">{n.name}</p>
                   </motion.a>
