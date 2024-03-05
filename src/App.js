@@ -1,5 +1,6 @@
 import Spline from "@splinetool/react-spline";
 import 'react-vertical-timeline-component/style.min.css';
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from "react";
 import ben from "./images/ben.jpg"
 import {
@@ -18,7 +19,6 @@ import {
   Projects,
   SocialLinks
 } from "./data";
-import { AnimatePresence, motion } from 'framer-motion'
 
 
 
@@ -69,7 +69,7 @@ function App() {
               </motion.a>
             </div>
 
-
+            {/* Action Menu */}
             <motion.div
               whileTap={{ scale: 0.5 }}
               className="block md:hidden  ml-auto cursor-pointer"
@@ -78,7 +78,7 @@ function App() {
               <IoMenu className="text-2xl text-textBase " />
             </motion.div>
 
-
+            {/* Mobile Navigation */}
             {isActive && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -131,24 +131,13 @@ function App() {
           <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode" />
           {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
           <div className="absolute bottom-10 w-full flex justify-center items-center">
-            <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl ">
-              <p className="text-white">Press and drag to orbit</p>
+            <div className="xl:block hidden">
+              <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl">
+                <p className="text-white">Press and drag to orbit</p>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* <div
-          className="relative top-24" id="home">
-          <div
-            className="w-full md:w-4/5 lg:w-3/5 animate-pulse">
-            <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" />
-          </div>
-          <div className="absolute bottom-10 w-full flex justify-center items-center">
-            <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl ">
-              <p className="text-white">Press and drag to orbit</p>
-            </div>
-          </div>
-        </div> */}
 
 
         {/* MAIN SECTION */}
@@ -161,7 +150,6 @@ function App() {
             {/* image box */}
             <div className="w-full h-420 flex items-center justify-center">
               <motion.div
-
                 className="w-275 h-340 relative bg-zinc-600 rounded-md">
                 <img
                   src={ben}
@@ -176,8 +164,7 @@ function App() {
             <div className="w-full h-420 flex items-center justify-center">
               <div>
                 <p className="text-lg text-textBase text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illo reiciendis, eaque enim vel molestias nulla voluptatem incidunt accusantium expedita et deserunt minus dicta alias, fuga nisi repellat, quia doloribus.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius odio, beatae incidunt neque doloribus reiciendis eum quos eligendi, explicabo adipisci nobis provident corrupti officia corporis! Quis, veritatis fugiat. Eligendi, eius!
+                  I am a passionate and experienced software developer with a strong background in front-end development. I specialize in creating interactive and user-friendly web applications using modern technologies like React.js, JavaScript, and CSS. With a keen eye for design and a knack for problem-solving, I strive to deliver high-quality solutions that meet both user needs and business objectives.
                 </p>
 
                 <div className="items-center md:flex md:justify-center">
@@ -185,7 +172,7 @@ function App() {
                     whileTap={{ scale: 0.8 }}
                     class="w-full md:w-auto relative mt-6 inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50 hover:dark:shadow-lg hover:dark:shadow-teal-800/80">
                     <span class="w-full md:w-auto relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                      Download
+                      Download Resume
                     </span>
                   </motion.button>
                 </div>
@@ -225,12 +212,12 @@ function App() {
 
 
           {/* PROJECT SECTION */} {/* mapped */}
-          <h1 className="text-center text-3xl text-textBase font-medium uppercase mt-24" id="projects">My Projects</h1>
+          <h1 className="text-center text-3xl text-textBase font-medium uppercase mt-24" id="projects">Explore My Projects</h1>
           <section className="flex flex-wrap items-center justify-evenly my-20 gap-4"
           >
             {Projects && Projects.map(n => (
               <motion.div
-                whileHover={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                 key={n.id}
                 className="border border-zinc-800 rounded-md p-2 min-w-[275px] md:max-w-[275px] xl:max-w-[475px] hover:border-zinc-600 duration-100 ease-in-out">
                 <p className="text-lg text-textBase font-medium uppercase">
@@ -259,15 +246,16 @@ function App() {
 
           {/* HIRE ME SECTION */}
           <section className="grid md:grid-cols-2 my-12 md:my-12 py-20 gap-4 relative" id="contacts">
-            {/* <div className="rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div> */}
             <div className="z10">
-              <h5 className="font-bold my-2 text-3xl text-textBase fontmedium uppercase">
-                Hire Me
+              <h5 className="font-bold mb-4 text-3xl text-textBase fontmedium uppercase">
+                Connect with Me
               </h5>
               <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md text-xl">
-                I&apos;m currently looking for new opportunities, my inbox is always
-                open. Whether you have a question or just want to say hi, I&apos;ll
-                try my best to get back to you!
+                I&apos;m currently looking for new opportunities,  
+                I'm always looking for exciting projects to work on. 
+                Feel free to reach out if you have any questions or want to collaborate! 
+                my inbox is always open.
+ 
               </p>
 
               <a href="https://github.com/Femi-Benjamin">
@@ -326,23 +314,6 @@ function App() {
                   />
                 </div>
 
-                <div className="mb-6">
-                  <label
-                    htmlFor="subject"
-                    className="text-white block text-md mb-2 font-medium"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    name="subject"
-                    type="text"
-                    id="subject"
-                    required
-                    className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-4 outline-none"
-                    placeholder="Just saying hi"
-                  />
-                </div>
-
                 <div className="mb-6 z-10">
                   <label
                     htmlFor="message"
@@ -368,13 +339,8 @@ function App() {
                     </span>
                   </button>
                 </div>
-
               </form>
             </div>
-
-
-
-
           </section>
 
           {/* CONTACT ME SECTION */} {/* mapped */}
@@ -388,7 +354,8 @@ function App() {
                     whileTap={{ scale: 0.8 }}
                     key={n.id}
                     className="w-full md:w-auto px-3 md:px-10 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 
-                  duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3 hover:bg-navBar" href={n.link} target="_blank" rel="noopener noreferrer">
+                    duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3 hover:bg-navBar" href={n.link}
+                    target="_blank" rel="noopener noreferrer">
                     {n.iconSrc}
                     <p className="text-lg text-textBase">{n.name}</p>
                   </motion.a>
