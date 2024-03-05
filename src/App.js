@@ -128,8 +128,8 @@ function App() {
         </nav>
 
         <div className="relative top-24" id="home">
-          {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
           <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode" />
+          {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
           <div className="absolute bottom-10 w-full flex justify-center items-center">
             <div className="xl:block hidden">
               <div className="shadow-md p-4 flex items-center justify-center bg-zinc-900 rounded-3xl">
