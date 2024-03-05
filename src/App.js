@@ -251,11 +251,11 @@ function App() {
                 Connect with Me
               </h5>
               <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md text-xl">
-                I&apos;m currently looking for new opportunities,  
-                I'm always looking for exciting projects to work on. 
-                Feel free to reach out if you have any questions or want to collaborate! 
+                I&apos;m currently looking for new opportunities,
+                I'm always looking for exciting projects to work on.
+                Feel free to reach out if you have any questions or want to collaborate!
                 my inbox is always open.
- 
+
               </p>
 
               <a href="https://github.com/Femi-Benjamin">
