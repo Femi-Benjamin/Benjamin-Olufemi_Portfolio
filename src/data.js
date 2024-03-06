@@ -1,7 +1,6 @@
 import {
   IoCodeWorking,
   IoLogoGithub,
-  IoLogoYoutube,
   IoLogoTwitter,
   IoLogoLinkedin,
   IoLogoWhatsapp,
@@ -146,11 +145,5 @@ export const SocialLinks = [
     ),
     name: "Whatsapp",
     link: "https://web.whatsapp.com/",
-  },
-  {
-    id: 1,
-    iconSrc: <IoLogoYoutube className="text-red-500 text-3xl cursor-pointer" />,
-    name: "YouTube",
-    link: "https://www.youtube.com/channel/UCQpGxRstrmjDdEn_dE7JTmQ",
   },
 ];

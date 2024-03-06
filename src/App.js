@@ -62,8 +62,10 @@ function App() {
               </a>
               <motion.a
                 whileTap={{ scale: 0.8 }}
-                href="/"
-                className="ml-auto text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1 rounded-xl hover:border-gray-100 duration-100 ease-in-out"
+                href="https://drive.google.com/file/d/1ZG_0SUKMdOg2J59cIQZg6NsvcKTTSGu_/view?usp=sharing"
+                target="_blank" rel="noopener noreferrer"
+                className="ml-auto text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1 
+                rounded-xl hover:border-gray-100 duration-100 ease-in-out"
               >
                 Download
               </motion.a>
@@ -116,8 +118,10 @@ function App() {
                 </a>
                 <motion.a
                   whileTap={{ scale: 0.8 }}
-                  href="/"
-                  className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1 rounded-xl hover:border-gray-100 duration-100 ease-in"
+                  href="https://drive.google.com/file/d/1ZG_0SUKMdOg2J59cIQZg6NsvcKTTSGu_/view?usp=sharing"
+                  target="_blank" rel="noopener noreferrer"
+                  className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase 
+                  px-2 py-1 rounded-xl hover:border-gray-100 duration-100 ease-in"
                   onClick={() => setIsActive(false)}
                 >
                   Download
@@ -127,7 +131,7 @@ function App() {
           </div>
         </nav>
 
-        <div className="relative top-24" id="home">
+        <div className="relative top-24 top" id="home">
           <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode" />
           {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
           <div className="absolute bottom-10 w-full flex justify-center items-center">
@@ -144,7 +148,7 @@ function App() {
         <main className="w-[80%] mt-10">
           {/* About Section */}
           <section
-            className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 my-24"
+            className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:my-28 md:pt-0 pt-20"
             id="about"
           >
             {/* image box */}
@@ -168,13 +172,17 @@ function App() {
                 </p>
 
                 <div className="items-center md:flex md:justify-center">
-                  <motion.button
+                  <motion.a
+                    href="https://drive.google.com/file/d/1ZG_0SUKMdOg2J59cIQZg6NsvcKTTSGu_/view?usp=sharing"
+                    target="_blank" rel="noopener noreferrer"
                     whileTap={{ scale: 0.8 }}
-                    class="w-full md:w-auto relative mt-6 inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50 hover:dark:shadow-lg hover:dark:shadow-teal-800/80">
-                    <span class="w-full md:w-auto relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                      Download Resume
+                    class="w-full md:w-auto relative mt-6 inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 
+                    focus:ring-green-200 dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50 hover:dark:shadow-lg hover:dark:shadow-teal-800/80">
+                    <span class="w-full md:w-auto relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0
+                    text-center">
+                      Download
                     </span>
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
             </div>
@@ -212,8 +220,9 @@ function App() {
 
 
           {/* PROJECT SECTION */} {/* mapped */}
-          <h1 className="text-center text-3xl text-textBase font-medium uppercase mt-24" id="projects">Explore My Projects</h1>
-          <section className="flex flex-wrap items-center justify-evenly my-20 gap-4"
+          <h1 className="text-center md:text-3xl text-2xl text-textBase font-medium uppercase mt-24"
+            id="projects">Explore My Projects</h1>
+          <section className="flex flex-wrap items-center justify-evenly md:my-20 md:pt-0 pt-16 gap-4"
           >
             {Projects && Projects.map(n => (
               <motion.div
@@ -247,15 +256,14 @@ function App() {
           {/* HIRE ME SECTION */}
           <section className="grid md:grid-cols-2 my-12 md:my-12 py-20 gap-4 relative" id="contacts">
             <div className="z10">
-              <h5 className="font-bold mb-4 text-3xl text-textBase fontmedium uppercase">
+              <h5 className="font-bold mb-4 md:text-3xl text-2xl text-textBase fontmedium uppercase">
                 Connect with Me
               </h5>
-              <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md text-xl">
+              <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md md:text-xl text-lg">
                 I&apos;m currently looking for new opportunities,
                 I'm always looking for exciting projects to work on.
                 Feel free to reach out if you have any questions or want to collaborate!
                 my inbox is always open.
-
               </p>
 
               <a href="https://github.com/Femi-Benjamin">
@@ -324,7 +332,7 @@ function App() {
                   <textarea
                     name="message"
                     id="message"
-                    // required="required"
+                    required="required"
                     className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3 outline-none"
                     placeholder="Let's talk about..."
                   />
@@ -346,7 +354,7 @@ function App() {
           {/* CONTACT ME SECTION */} {/* mapped */}
           <section
             className="flex flex-col items-center justify-center w-full my24">
-            <p className="text-2xl text-gray-400 capitalize md:text-left text-center">follow me on social media for more content</p>
+            <p className="md:text-2xl text-xl text-gray-400 capitalize md:text-left text-center">follow me on social media for more content</p>
             <div className="flex items-center justify-center w-full my-10 flex-wrap gap-4">
               {
                 SocialLinks && SocialLinks.map(n => (
