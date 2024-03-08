@@ -1,3 +1,5 @@
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import Spline from "@splinetool/react-spline";
 import 'react-vertical-timeline-component/style.min.css';
 import { AnimatePresence, motion } from 'framer-motion'
@@ -21,9 +23,27 @@ import {
 } from "./data";
 
 
-
 function App() {
   const [isActive, setIsActive] = useState(false);
+
+
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_dmxq6sb', 'template_m7vyxnm', form.current, {
+      publicKey: 'TNqEZSn8KabiXckMt',
+    })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
 
   return (
     <AnimatePresence initial={false}>
@@ -46,19 +66,19 @@ function App() {
                 href="#about"
                 className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
               >
-                About
+                About_Me
               </a>
               <a
                 href="#projects"
                 className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
               >
-                Projects
+                My_Projects
               </a>
               <a
                 href="#contacts"
                 className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
               >
-                Contact
+                Contact_Me
               </a>
               <motion.a
                 whileTap={{ scale: 0.8 }}
@@ -100,21 +120,21 @@ function App() {
                   className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
                   onClick={() => setIsActive(false)}
                 >
-                  About
+                  About_Me
                 </a>
                 <a
                   href="#projects"
                   className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
                   onClick={() => setIsActive(false)}
                 >
-                  Projects
+                  My_Projects
                 </a>
                 <a
                   href="#contacts"
                   className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
                   onClick={() => setIsActive(false)}
                 >
-                  Contact
+                  Contact_Me
                 </a>
                 <motion.a
                   whileTap={{ scale: 0.8 }}
@@ -148,27 +168,33 @@ function App() {
         <main className="w-[80%] mt-10">
           {/* About Section */}
           <section
-            className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:my-28 md:pt-0 pt-20"
+            className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:my-28 my-20 md:pt-0 pt-20"
             id="about"
           >
             {/* image box */}
             <div className="w-full h-420 flex items-center justify-center">
-              <motion.div
+              <div
                 className="w-275 h-340 relative bg-zinc-600 rounded-md">
                 <img
                   src={ben}
                   alt=""
                   className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl"
                 />
-              </motion.div>
+              </div>
             </div>
 
 
             {/* CONTENT BOX */}
             <div className="w-full h-420 flex items-center justify-center">
               <div>
-                <p className="text-lg text-textBase text-center">
-                  I am a passionate and experienced software developer with a strong background in front-end development. I specialize in creating interactive and user-friendly web applications using modern technologies like React.js, JavaScript, and CSS. With a keen eye for design and a knack for problem-solving, I strive to deliver high-quality solutions that meet both user needs and business objectives.
+                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-10 pb-3 font-bold">
+                  Hello, 👋🏽
+                </h1>
+                <h1 className="text-3xl text-textBase md:text-justify text-center pb-5 font-extrabold">
+                  I am <span className="text-zinc-300">Benjamin</span>
+                </h1>
+                <p className="text-lg text-textBase text-justify">
+                  A passionate and experienced software developer with a strong background in frontend development. I love to convert designs to code. I specialize in creating interactive and user-friendly web applications using modern technologies like React.js, Next.js, JavaScript, and CSS (Tailwind CSS). With a keen eye for design and a knack for problem-solving, I strive to deliver high-quality solutions that meet both user needs and business objectives.
                 </p>
 
                 <div className="items-center md:flex md:justify-center">
@@ -190,7 +216,7 @@ function App() {
 
 
           {/* TIMELINE SECTION */} {/* mapped */}
-          <section className="w-full flex items-center justify-center">
+          <section className="w-full flex items-center justify-center md:mt-0 pt-10">
             <VerticalTimeline>
               {
                 Experience && Experience.map(n => (
@@ -262,7 +288,7 @@ function App() {
               <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md md:text-xl text-lg">
                 I&apos;m currently looking for new opportunities,
                 I'm always looking for exciting projects to work on.
-                Feel free to reach out if you have any questions or want to collaborate!
+                Feel free to reach out if you have any questions or want to collaborate with me!
                 my inbox is always open.
               </p>
 
@@ -290,17 +316,20 @@ function App() {
             </div>
 
             <div>
-              <form className="flex flex-col gap-4 ">
+              <form
+                ref={form} onSubmit={sendEmail}
+                className="flex flex-col gap-4 ">
                 <div className="mb-4">
                   <label htmlFor="name" className="block text-md text-white pb-3">
                     Your Name
                   </label>
                   <input
+                    // name="name"
                     type="text"
+                    name="user_name"
                     id="name"
                     required
                     placeholder="Enter your name"
-                    name="name"
                     className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-4 outline-none "
                   />
                 </div>
@@ -313,8 +342,9 @@ function App() {
                     Your email
                   </label>
                   <input
-                    name="email"
+                    // name="email"
                     type="email"
+                    name="user_email"
                     id="email"
                     required
                     className="md:bg-[#18191E] bg-transparent md:border-none border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-4 outline-none"
@@ -330,6 +360,7 @@ function App() {
                     Message
                   </label>
                   <textarea
+                    // name="message"
                     name="message"
                     id="message"
                     required="required"
@@ -340,9 +371,10 @@ function App() {
 
                 <div className="items-center md:flex md:justify-center">
                   <button
+                    type="submit" value="Send"
                     whileTap={{ scale: 0.8 }}
                     class="w-full md:w-auto relative md:mt-6 inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50 hover:dark:shadow-lg hover:dark:shadow-teal-800/80">
-                    <span class="w-full md:w-auto relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    <span class="w-full md:w-auto relative px-10 py-3.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                       Send Message
                     </span>
                   </button>
