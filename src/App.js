@@ -4,7 +4,7 @@ import Spline from "@splinetool/react-spline";
 import 'react-vertical-timeline-component/style.min.css';
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from "react";
-import ben from "./images/ben.jpg"
+import ben from "./images/ben.jpg";
 import {
   IoMenu,
   IoLogoGithub,
@@ -19,8 +19,10 @@ import {
 import {
   Experience,
   Projects,
-  SocialLinks
+  SocialLinks,
+  SkillData
 } from "./data";
+
 
 
 function App() {
@@ -67,6 +69,12 @@ function App() {
                 className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
               >
                 About_Me
+              </a>
+              <a
+                href="#skills"
+                className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
+              >
+                Tech_Stack
               </a>
               <a
                 href="#projects"
@@ -123,6 +131,12 @@ function App() {
                   About_Me
                 </a>
                 <a
+                  href="#skills"
+                  className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
+                >
+                  Tech_Stack
+                </a>
+                <a
                   href="#projects"
                   className="text-base text-textBase font-medium hover:text-slate-100 cursor-pointer duration-100 ease-in"
                   onClick={() => setIsActive(false)}
@@ -151,7 +165,7 @@ function App() {
           </div>
         </nav>
 
-        <div className="relative top-24 top" id="home">
+        <div className="relative md:top-[106px] top-24" id="home">
           <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode" />
           {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
           <div className="absolute bottom-10 w-full flex justify-center items-center">
@@ -165,7 +179,7 @@ function App() {
 
 
         {/* MAIN SECTION */}
-        <main className="w-[80%] mt-10">
+        <main className="w-[80%] md:mt-10">
           {/* About Section */}
           <section
             className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:my-28 my-20 md:pt-0 pt-20"
@@ -187,7 +201,7 @@ function App() {
             {/* CONTENT BOX */}
             <div className="w-full h-420 flex items-center justify-center">
               <div>
-                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-10 pb-3 font-bold">
+                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-14 pb-3 font-bold">
                   Hello, 👋🏽
                 </h1>
                 <h1 className="text-3xl text-textBase md:text-justify text-center pb-5 font-extrabold">
@@ -245,10 +259,32 @@ function App() {
           </section>
 
 
+          {/* SKILLS SECTION */}
+          <section className="my-24" id='skills'>
+            <div className="min-w-6xl mx-auto px-4">
+              <h2 className="mb-4 text-center md:text-3xl text-2xl text-textBase font-medium uppercase">My Tech Stack</h2>
+              <p className='mb-6 text-textBase text-center md:text-xl text-lg'>Here are some technologies I've used!</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {SkillData.map((skill, index) => (
+                  <div key={index} className="flex items-center justify-center hover:bg-gray-900  p-4 border border-gray-900
+                  hover:border-gray-800 rounded-lg">
+                    <img
+                      src={skill.imgSrc}
+                      alt={skill.name}
+                      className="h-12 w-12"
+                    />
+                    <span className="ml-2 text-lg text-gray-200">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+
           {/* PROJECT SECTION */} {/* mapped */}
           <h1 className="text-center md:text-3xl text-2xl text-textBase font-medium uppercase mt-24"
             id="projects">Explore My Projects</h1>
-          <section className="flex flex-wrap items-center justify-evenly md:my-20 md:pt-0 pt-16 gap-4"
+          <section className="flex flex-wrap items-center justify-evenly md:my-16 md:pt-0 pt-10 gap-4"
           >
             {Projects && Projects.map(n => (
               <motion.div
@@ -286,10 +322,14 @@ function App() {
                 Connect with Me
               </h5>
               <p className="text[#ADB7BE] text-gray-300 mb-4 max-w-md md:text-xl text-lg">
-                I&apos;m currently looking for new opportunities,
-                I'm always looking for exciting projects to work on.
+                {/* */}
+                Are you in search for a user interface (UI) designer who excels in both crafting engaging
+                and interactive user interfaces and also translates complex technical terms into clear,
+                understandable language? <br />
                 Feel free to reach out if you have any questions or want to collaborate with me!
                 my inbox is always open.
+
+                Look no further! I'm here and ready to assist you.
               </p>
 
               <a href="https://github.com/Femi-Benjamin">
@@ -385,7 +425,7 @@ function App() {
 
           {/* CONTACT ME SECTION */} {/* mapped */}
           <section
-            className="flex flex-col items-center justify-center w-full my24">
+            className="flex flex-col items-center justify-center w-full bg-navBar pt-10 md:px-0 px-3 rounded-xl">
             <p className="md:text-2xl text-xl text-gray-400 capitalize md:text-left text-center">follow me on social media for more content</p>
             <div className="flex items-center justify-center w-full my-10 flex-wrap gap-4">
               {
@@ -393,7 +433,7 @@ function App() {
                   <motion.a
                     whileTap={{ scale: 0.8 }}
                     key={n.id}
-                    className="w-full md:w-auto px-3 md:px-10 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 
+                    className="w-full md:w-auto px-3 md:px-10 py-5 border border-gray-800 rounded-2xl hover:border-zinc-600 
                     duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3 hover:bg-navBar" href={n.link}
                     target="_blank" rel="noopener noreferrer">
                     {n.iconSrc}

@@ -12,6 +12,16 @@ import img3 from "./images/thumb-google-map-clone-nextjs-feb22.png";
 import img4 from "./images/thumb-pinterest-clone-reactjs.png";
 import img5 from "./images/thumb-videoblog-firebase-reactjs-feb-22.png";
 import img6 from "./images/thumb-whatsappui-clone-nextjs.png";
+import img7 from "./images/html.png";
+import img8 from "./images/css.png";
+import img9 from "./images/js.png";
+import img10 from "./images/tailwind.png";
+import img11 from "./images/react.png";
+import img12 from "./images/framer.png";
+import img13 from "./images/ts.png";
+import img14 from "./images/next.png";
+import img15 from "./images/redux.png";
+import img16 from "./images/node-js.png";
 
 export const Experience = [
   {
@@ -145,5 +155,69 @@ export const SocialLinks = [
     ),
     name: "Whatsapp",
     link: "https://web.whatsapp.com/",
+  },
+];
+
+export const SkillData = [
+  {
+    name: "Html 5",
+    imgSrc: img7,
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "Css",
+    imgSrc: img8,
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "JavaScript",
+    imgSrc: img9,
+    width: 65,
+    height: 65,
+  },
+  {
+    name: "Tailwind Css",
+    imgSrc: img10,
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "React",
+    imgSrc: img11,
+    width: 80,
+    height: 80,
+  },
+  {
+    name:  "Framer Motion",
+    imgSrc: img12,
+    width: 80,
+    height: 80,
+  },
+
+  {
+    name: "TypeScript",
+    imgSrc: img13,
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "Next js 14",
+    imgSrc: img14,
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "Redux",
+    imgSrc: img15,
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "Node js",
+    imgSrc: img16,
+    width: 80,
+    height: 80,
   },
 ];
