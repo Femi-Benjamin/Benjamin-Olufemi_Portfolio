@@ -201,7 +201,7 @@ function App() {
             {/* CONTENT BOX */}
             <div className="w-full h-420 flex items-center justify-center">
               <div>
-                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-20 pb-3 font-bold">
+                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-28 pb-3 font-bold">
                   Hello, 👋🏽
                 </h1>
                 <h1 className="text-3xl text-textBase md:text-justify text-center md:pb-5 pb-2 font-extrabold">
@@ -235,7 +235,7 @@ function App() {
 
 
           {/* TIMELINE SECTION */} {/* mapped */}
-          <section className="w-full flex items-center justify-center md:pt-0 pt-14">
+          <section className="w-full flex items-center justify-center md:pt-0 pt-24">
             <VerticalTimeline>
               {
                 Experience && Experience.map(n => (
