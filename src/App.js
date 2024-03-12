@@ -201,16 +201,21 @@ function App() {
             {/* CONTENT BOX */}
             <div className="w-full h-420 flex items-center justify-center">
               <div>
-                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-14 pb-3 font-bold">
+                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-20 pb-3 font-bold">
                   Hello, 👋🏽
                 </h1>
-                <h1 className="text-3xl text-textBase md:text-justify text-center pb-5 font-extrabold">
+                <h1 className="text-3xl text-textBase md:text-justify text-center md:pb-5 pb-2 font-extrabold">
                   I am <span className="text-zinc-300">Benjamin</span>
                 </h1>
                 <p className="text-lg text-textBase text-justify">
-                  A passionate and experienced software developer with a strong background in frontend development. I love to convert designs to code. I specialize in creating interactive and user-friendly web applications using modern technologies like React.js, Next.js, JavaScript, and CSS (Tailwind CSS). With a keen eye for design and a knack for problem-solving, I strive to deliver high-quality solutions that meet both user needs and business objectives.
+                  A frontend developer and web designer,
+                  I love converting designs to code.
+                  I specialize in creating interactive and user-friendly web applications using modern technologies like React.js, Next.js, JavaScript, and CSS (Tailwind CSS).
+                  <br />
+                  Throughout this journey, I have gained expertise in designing and developing visually appealing and functional websites.
+                  With a keen eye for design and a knack for problem-solving, I'm dedicated to crafting websites that not only look good
+                  but also work seamlessly to provide the best user experience.
                 </p>
-
                 <div className="items-center md:flex md:justify-center">
                   <motion.a
                     href="https://drive.google.com/file/d/1ZG_0SUKMdOg2J59cIQZg6NsvcKTTSGu_/view?usp=sharing"
@@ -230,7 +235,7 @@ function App() {
 
 
           {/* TIMELINE SECTION */} {/* mapped */}
-          <section className="w-full flex items-center justify-center md:mt-0 pt-10">
+          <section className="w-full flex items-center justify-center md:pt-0 pt-14">
             <VerticalTimeline>
               {
                 Experience && Experience.map(n => (
@@ -328,7 +333,6 @@ function App() {
                 understandable language? <br />
                 Feel free to reach out if you have any questions or want to collaborate with me!
                 my inbox is always open.
-
                 Look no further! I'm here and ready to assist you.
               </p>
 
