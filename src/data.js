@@ -6,12 +6,12 @@ import {
   IoLogoWhatsapp,
 } from "react-icons/io5";
 
-import img1 from "./images/thumb-fooddeliveryapp-reactjs-dec.png";
-import img2 from "./images/thumb-fullstack-socialmedia-app-react-sanity.png";
-import img3 from "./images/thumb-google-map-clone-nextjs-feb22.png";
-import img4 from "./images/thumb-pinterest-clone-reactjs.png";
-import img5 from "./images/thumb-videoblog-firebase-reactjs-feb-22.png";
-import img6 from "./images/thumb-whatsappui-clone-nextjs.png";
+import Healthcare from "./images/Healthcare.png";
+import personarise from "./images/personarise.png";
+import elearn from "./images/elearn.png";
+import animefinance from "./images/animefinance.png";
+import cardify from "./images/cardify.png";
+import bloom from "./images/bloom.png";
 import img7 from "./images/html.png";
 import img8 from "./images/css.png";
 import img9 from "./images/js.png";
@@ -26,28 +26,31 @@ import img16 from "./images/node-js.png";
 export const Experience = [
   {
     id: 1,
-    date: "2016 - present",
+    date: "2021 - present",
     iconsSrc: <IoCodeWorking />,
-    title: "Creative Director",
-    location: "Doha, Qatar",
+    job: "Freelance",
+    title: "UPWORK",
+    location: "Akwa Ibom, Nigeria",
     description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
+      "A freelancer at upwork, an american freelancing platform and the largest network of independent professionals to get things done from quick turnarounds to big transfromation",
   },
   {
     id: 2,
-    date: "2014 - 2016",
+    date: "January-2023 - August-2023",
     iconsSrc: <IoCodeWorking />,
-    title: "Creative Director",
+    job: "Internship",
+    title: "PERSONARISE",
     location: "Miami, FL",
     description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
+      "Developed the landing page and worked on the web application of the Personarise platform, a platform hoping to revolutionize the interconnctions between Interns and Founders who are looking for real-world experience and career growth.",
   },
   {
     id: 3,
     date: "2012 - 2014",
     iconsSrc: <IoCodeWorking />,
+    job: "Freelance",
     title: "Creative Director",
-    location: "Doha, Qatar",
+    lcation: "Doha, Qatar",
     description:
       "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
   },
@@ -55,6 +58,7 @@ export const Experience = [
     id: 4,
     date: "2011 - 2012",
     iconsSrc: <IoCodeWorking />,
+    job: "Freelance",
     title: "Creative Director",
     location: "Miami, FL",
     description:
@@ -64,8 +68,9 @@ export const Experience = [
     id: 5,
     date: "2010 - 2011",
     iconsSrc: <IoCodeWorking />,
+    job: "Freelance",
     title: "Creative Director",
-    location: "Doha, Qatar",
+    //cation: "Doha, Qatar",
     description:
       "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
   },
@@ -73,6 +78,7 @@ export const Experience = [
     id: 6,
     date: "2009 - 2010",
     iconsSrc: <IoCodeWorking />,
+    job: "Freelance",
     title: "Creative Director",
     location: "Miami, FL",
     description:
@@ -83,45 +89,51 @@ export const Experience = [
 export const Projects = [
   {
     id: 1,
-    name: "Food Delivery UI Mockup",
-    imageSrc: img1,
-    techs: "React Js, Redux, Material UI",
-    github: "#",
+    name: "HealthCare Management System",
+    imageSrc: Healthcare,
+    techs: "React Js, TailwindCSS, Material UI, MySQL",
+    github: "https://github.com/Femi-Benjamin/HealthCare_App",
+    livelink: "https://healthcare-app.vercel.app/",
   },
   {
     id: 2,
-    name: "Full Stack Social Media App ",
-    imageSrc: img2,
-    techs: "React Js, Sanity, Tailwind CSS",
-    github: "#",
+    name: "personarise Web App ",
+    imageSrc: personarise,
+    techs: "React Js, Tailwind CSS, Material UI",
+    github: "https://github.com/Femi-Benjamin/Personarise-Project",
+    // livelink:"",
   },
   {
     id: 3,
-    name: "Travel Advisor",
-    imageSrc: img3,
-    techs: "React Js, Chakra UI, Google API",
-    github: "#",
+    name: "E-Learning Platform",
+    imageSrc: elearn,
+    techs: "React Js, Chakra UI, TailwindCSS",
+    github: "https://github.com/Femi-Benjamin/e-learn_project1",
+    livelink: "https://e-learn-project1.vercel.app/",
   },
   {
     id: 4,
-    name: "Pintrest UI Clone 2.0 ",
-    imageSrc: img4,
+    name: "Anime Finance 1.0",
+    imageSrc: animefinance,
     techs: "React Js,  Material UI",
-    github: "#",
+    github: "https://github.com/Femi-Benjamin/anime-finance",
+    livelink: "https://anime-finance-five.vercel.app/",
   },
   {
     id: 5,
-    name: "Own Video Blog",
-    imageSrc: img5,
-    techs: "React Js, Chara UI, Firebase",
-    github: "#",
+    name: "Cardify",
+    imageSrc: cardify,
+    techs: "React Js, TailwindCSS, Chara UI, Firebase",
+    github: "https://github.com/Femi-Benjamin/Cardify",
+    livelink: "https://cardify-bice.vercel.app/",
   },
   {
     id: 6,
-    name: "Whatsapp UI Clone",
-    imageSrc: img6,
-    techs: "NextJs, Firebase Auth",
-    github: "#",
+    name: "Bloom Pet Clinic",
+    imageSrc: bloom,
+    techs: "React.Js, Styled component, Material UI, FakerApi",
+    github: "https://github.com/Femi-Benjamin/bloom-pet-clinic",
+    // livelink:"",
   },
 ];
 
@@ -190,7 +202,7 @@ export const SkillData = [
     height: 80,
   },
   {
-    name:  "Framer Motion",
+    name: "Framer Motion",
     imgSrc: img12,
     width: 80,
     height: 80,

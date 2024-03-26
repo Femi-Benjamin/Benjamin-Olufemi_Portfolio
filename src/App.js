@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import Spline from "@splinetool/react-spline";
 import 'react-vertical-timeline-component/style.min.css';
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from "react";
 import ben from "./images/ben.jpg";
 import {
   IoMenu,
@@ -22,14 +21,30 @@ import {
   SocialLinks,
   SkillData
 } from "./data";
-
-
+import { useInView } from 'react-intersection-observer';
+import Zoom from 'react-reveal/Zoom';
+import Bounce from 'react-reveal/Bounce';
+import { IoIosLink } from "react-icons/io";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [isActive, setIsActive] = useState(false);
-
+  const [ref, isInView] = useInView({ threshold: 0 });
+  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [emailSent, setEmailSent] = useState(false); // State variable to track email sending status 
 
   const form = useRef();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -39,17 +54,23 @@ function App() {
       .then(
         () => {
           console.log('SUCCESS!');
+          // setEmailSent(true); // Update state to indicate email sent successfully
+          toast.success("Email sent successfully!");
+          form.current.reset(); // Reset form inputs
         },
         (error) => {
           console.log('FAILED...', error.text);
+          toast.error("Failed to send email!");
         },
       );
   };
 
+  const splineOffset = -scrollPosition * 0.3;
 
   return (
     <AnimatePresence initial={false}>
       <div className="flex w-screen min-h-screen flex-col items-center justify-center relative bg-primary pb-20">
+        <ToastContainer /> {/* Toast container for displaying messages */}
         {/* Navigation */}
         <nav className="w-full px-6 z-50  fixed inset-x-0 top-5 flex justify-center items-center">
           <div className="w-full md:w-880 bg-navBar p-4 rounded-2xl flex items-center">
@@ -166,7 +187,9 @@ function App() {
         </nav>
 
         <div className="relative md:top-[106px] top-24" id="home">
-          <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode" />
+          <Spline scene="https://prod.spline.design/Z31F8KCKhr798Pgt/scene.splinecode"
+            style={{ transform: `translateY(${splineOffset}px)` }}
+          />
           {/* <Spline scene="https://prod.spline.design/dU1g6MsQncpoBhAh/scene.splinecode" /> */}
           <div className="absolute bottom-10 w-full flex justify-center items-center">
             <div className="xl:block hidden">
@@ -189,11 +212,13 @@ function App() {
             <div className="w-full h-420 flex items-center justify-center">
               <div
                 className="w-275 h-340 relative bg-zinc-600 rounded-md">
-                <img
-                  src={ben}
-                  alt=""
-                  className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl"
-                />
+                <Zoom>
+                  <img
+                    src={ben}
+                    alt=""
+                    className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl"
+                  />
+                </Zoom>
               </div>
             </div>
 
@@ -201,14 +226,16 @@ function App() {
             {/* CONTENT BOX */}
             <div className="w-full h-420 flex items-center justify-center">
               <div>
-                <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-28 pb-3 font-bold">
-                  Hello, 👋🏽
-                </h1>
+                <Bounce>
+                  <h1 className="text-3xl text-textBase md:text-justify text-center md:py-5 md:pt-0 pt-28 pb-3 font-bold">
+                    Hello,<span>👋🏽</span>
+                  </h1>
+                </Bounce>
                 <h1 className="text-3xl text-textBase md:text-justify text-center md:pb-5 pb-2 font-extrabold">
                   I am <span className="text-zinc-300">Benjamin</span>
                 </h1>
                 <p className="text-lg text-textBase text-justify">
-                  A frontend developer and web designer,
+                  A frontend developer,
                   I love converting designs to code.
                   I specialize in creating interactive and user-friendly web applications using modern technologies like React.js, Next.js, JavaScript, and CSS (Tailwind CSS).
                   <br />
@@ -225,7 +252,7 @@ function App() {
                     focus:ring-green-200 dark:focus:ring-green-800 hover:shadow-lg hover:shadow-teal-500/50 hover:dark:shadow-lg hover:dark:shadow-teal-800/80">
                     <span class="w-full md:w-auto relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0
                     text-center">
-                      Download
+                      View Resume
                     </span>
                   </motion.a>
                 </div>
@@ -251,9 +278,12 @@ function App() {
                     <h3 className="vertical-timeline-element-title">
                       {n.title}
                     </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
+                    <h3 className="vertical-timeline-element-title">
+                      {n.job}
+                    </h3>
+                    {/* <h4 className="vertical-timeline-element-subtitle">
                       {n.location}
-                    </h4>
+                    </h4> */}
                     <p>
                       {n.description}
                     </p>
@@ -265,11 +295,16 @@ function App() {
 
 
           {/* SKILLS SECTION */}
-          <section className="my-24" id='skills'>
+          <section ref={ref}
+            className="my-24" id='skills'>
             <div className="min-w-6xl mx-auto px-4">
               <h2 className="mb-4 text-center md:text-3xl text-2xl text-textBase font-medium uppercase">My Tech Stack</h2>
               <p className='mb-6 text-textBase text-center md:text-xl text-lg'>Here are some technologies I've used!</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.5, }}
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {SkillData.map((skill, index) => (
                   <div key={index} className="flex items-center justify-center hover:bg-gray-900  p-4 border border-gray-900
                   hover:border-gray-800 rounded-lg">
@@ -281,7 +316,7 @@ function App() {
                     <span className="ml-2 text-lg text-gray-200">{skill.name}</span>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </section>
 
@@ -308,12 +343,22 @@ function App() {
                     <span className="block  text-sm text-gray-500">{n.techs}</span>
                   </p>
 
-                  <a href={n.github}>
-                    <motion.div
-                      whileTap={{ scale: 0.8 }}>
-                      <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
-                    </motion.div>
-                  </a>
+                  <div className='flex gap-5 items-center'>
+                    <a href={n.github} target="_blank" rel="noopener noreferrer">
+                      <motion.div
+                        whileTap={{ scale: 0.8 }}>
+                        <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
+                      </motion.div>
+                    </a>
+
+                    <a href={n.livelink} target="_blank" rel="noopener noreferrer">
+                      <motion.div
+                        whileTap={{ scale: 0.8 }}>
+                        <IoIosLink className="text-textBase text-3xl cursor-pointer" />
+                      </motion.div>
+                    </a>
+                  </div>
+
                 </div>
               </motion.div>
             ))}
@@ -350,7 +395,6 @@ function App() {
                   <IoCallOutline />
                   <h1>08160989601, 07054405537</h1>
                 </div>
-
 
                 <a href="mailto:benjaminolufemi16@gmail.com" className="flex gap-3 items-center">
                   <IoMailOutline />
@@ -425,7 +469,15 @@ function App() {
                 </div>
               </form>
             </div>
+
+            {/* Success message */}
+            {/* {emailSent && (
+              <div className="w-full flex items-center justify-center">
+                <p className="text-green-500 text-xl font-medium">Email sent successfully!</p>
+              </div>
+            )} */}
           </section>
+
 
           {/* CONTACT ME SECTION */} {/* mapped */}
           <section
@@ -447,10 +499,12 @@ function App() {
               }
             </div>
           </section>
-
+          <div>
+            <h1 className='text-textBase md:text-2xl text-xl text-center mt-12'>Copyright &copy;2024 All rights reserved | Benjamin Olufemi</h1>
+          </div>
         </main>
       </div>
-    </AnimatePresence>
+    </AnimatePresence >
   );
 }
 
