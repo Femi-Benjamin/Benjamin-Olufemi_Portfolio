@@ -36,54 +36,54 @@ export const Experience = [
   },
   {
     id: 2,
-    date: "January-2023 - August-2023",
+    date: "08/2022 - 08/2022",
+    iconsSrc: <IoCodeWorking />,
+    job: "Freelance",
+    title: "University E-Learning Platform",
+    location: "Doha, Qatar",
+    description:
+      "Devloped the Streamlined course search and registration process, reducing completion time by 30% and also Integrated third-party learning resources for a more comprehensive learning experience",
+  },
+  {
+    id: 3,
+    date: "DECEMBER-2022 - JANUARY-2023",
+    iconsSrc: <IoCodeWorking />,
+    job: "Internship",
+    title: " YIEE",
+    location: "Miami, FL",
+    description:
+      "Youth Initiative for Economic Empowerment (YIEE) a non-profit organization that provides jobs to young people in Africa and helps them become entrepreneurs ",
+  },
+  {
+    id: 4,
+    date: "MARCH-2023 - SEPTEMBER-2023",
     iconsSrc: <IoCodeWorking />,
     job: "Internship",
     title: "PERSONARISE",
-    location: "Miami, FL",
+    lcation: "Doha, Qatar",
     description:
       "Developed the landing page and worked on the web application of the Personarise platform, a platform hoping to revolutionize the interconnctions between Interns and Founders who are looking for real-world experience and career growth.",
   },
   {
-    id: 3,
-    date: "2012 - 2014",
-    iconsSrc: <IoCodeWorking />,
-    job: "Freelance",
-    title: "Creative Director",
-    lcation: "Doha, Qatar",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-  },
-  {
-    id: 4,
-    date: "2011 - 2012",
-    iconsSrc: <IoCodeWorking />,
-    job: "Freelance",
-    title: "Creative Director",
-    location: "Miami, FL",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-  },
-  {
     id: 5,
-    date: "2010 - 2011",
+    date: "FEBRUARY-2024",
     iconsSrc: <IoCodeWorking />,
     job: "Freelance",
-    title: "Creative Director",
-    //cation: "Doha, Qatar",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-  },
-  {
-    id: 6,
-    date: "2009 - 2010",
-    iconsSrc: <IoCodeWorking />,
-    job: "Freelance",
-    title: "Creative Director",
+    title: "HEALTHCARE SYSTEM",
     location: "Miami, FL",
     description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
+      "Developed the entire UI for the HealthCare E-Management System, a web application to enhance patient care, and adapt to your institution's unique medical needs",
   },
+  // {
+  //   id: 6,
+  //   date: "2009 - 2010",
+  //   iconsSrc: <IoCodeWorking />,
+  //   job: "Freelance",
+  //   title: "Creative Director",
+  //   location: "Miami, FL",
+  //   description:
+  //     "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
+  // },
 ];
 
 export const Projects = [
